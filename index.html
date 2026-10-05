@@ -274,7 +274,7 @@
   <h2>Auto verkaufen</h2>
   <p>Erstelle dein Inserat auf AUTOORA.</p>
 
-  <form>
+  <form id="verkaufsForm">
     <input type="text" placeholder="Marke, z.B. BMW" required>
     <input type="text" placeholder="Modell, z.B. X5" required>
     <input type="number" placeholder="Baujahr" required>
@@ -313,7 +313,7 @@
   © 2026 AUTOORA · Autos kaufen & verkaufen
 </footer>
   <script>
-const form = document.querySelector("form");
+const form = document.getElementById("verkaufsForm");
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();

@@ -312,6 +312,15 @@
 <footer>
   © 2026 AUTOORA · Autos kaufen & verkaufen
 </footer>
+  <script>
+const form = document.querySelector("form");
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+  alert("🎉 Dein Inserat wurde erstellt!");
+  window.location.href = "index.html";
+});
+</script>
 
 </body>
 </html>

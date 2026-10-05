@@ -349,6 +349,31 @@ form.addEventListener("submit", function(event) {
     alert("🎉 Dein Inserat wurde gespeichert!");
     window.location.href = "index.html";
 });
+<script>
+const gespeicherteInserate =
+    JSON.parse(localStorage.getItem("autooraInserate")) || [];
+
+gespeicherteInserate.forEach(function(auto) {
+    const karte = document.createElement("div");
+
+    karte.style.background = "white";
+    karte.style.padding = "20px";
+    karte.style.margin = "20px";
+    karte.style.borderRadius = "15px";
+
+    karte.innerHTML = `
+        <h2>${auto.marke} ${auto.modell}</h2>
+        <p>${auto.baujahr} · ${auto.kilometer} km</p>
+        <p>${auto.treibstoff} · ${auto.getriebe}</p>
+        <p>${auto.beschreibung || ""}</p>
+        <h3>CHF ${auto.preis}</h3>
+    `;
+
+    document.body.insertBefore(
+        karte,
+        document.querySelector("footer")
+    );
+});
 </script>
 
 </body>

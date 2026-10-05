@@ -176,10 +176,38 @@ button {
 </main>
 
 <script>
-document.getElementById("carForm").addEventListener("submit", function(e) {
+<script>
+const form = document.getElementById("carForm");
+
+form.addEventListener("submit", function(e) {
   e.preventDefault();
-  alert("Das Inserat-Formular funktioniert! Als Nächstes verbinden wir es mit der Datenbank.");
+
+  const inputs = form.querySelectorAll("input");
+  const selects = form.querySelectorAll("select");
+  const textarea = form.querySelector("textarea");
+
+  const inserat = {
+    marke: inputs[0].value,
+    modell: inputs[1].value,
+    baujahr: inputs[2].value,
+    kilometer: inputs[3].value,
+    preis: inputs[4].value,
+    treibstoff: selects[0] ? selects[0].value : "",
+    getriebe: selects[1] ? selects[1].value : "",
+    beschreibung: textarea ? textarea.value : "",
+    name: inputs[6] ? inputs[6].value : "",
+    email: inputs[7] ? inputs[7].value : "",
+    telefon: inputs[8] ? inputs[8].value : ""
+  };
+
+  let inserate = JSON.parse(localStorage.getItem("autooraInserate")) || [];
+  inserate.push(inserat);
+  localStorage.setItem("autooraInserate", JSON.stringify(inserate));
+
+  alert("🎉 Dein Inserat wurde gespeichert!");
+  window.location.href = "index.html";
 });
+</script>
 </script>
 
 </body>

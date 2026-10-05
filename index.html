@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AUTOORA – Autos kaufen & verkaufen</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f6f8;
+      color: #151515;
+    }
+
+    header {
+      background: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .sell-top {
+      background: #111;
+      color: white;
+      padding: 11px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero {
+      background: #111;
+      color: white;
+      padding: 55px 6% 65px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      max-width: 600px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      color: #ccc;
+      margin-bottom: 28px;
+      font-size: 17px;
+    }
+
+    .search-box {
+      background: white;
+      padding: 18px;
+      border-radius: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      max-width: 950px;
+    }
+
+    select, input {
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+      width: 100%;
+      background: white;
+    }
+
+    .search-button {
+      border: 0;
+      border-radius: 8px;
+      background: #ff5a1f;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .content {
+      padding: 35px 6%;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .content h2 {
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
+
+    .cars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .car {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    }
+
+    .car-image {
+      height: 190px;
+      background: #e6e6e6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+    }
+
+    .car-info {
+      padding: 18px;
+    }
+
+    .car-info h3 {
+      margin-bottom: 7px;
+    }
+
+    .details {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .sell-section {
+      margin-top: 45px;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .sell-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .sell-section p {
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .sell-button {
+      display: inline-block;
+      background: #ff5a1f;
+      color: white;
+      text-decoration: none;
+      padding: 14px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    footer {
+      margin-top: 45px;
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 25px;
+    }
+
+    @media (max-width: 750px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+
+      .search-box {
+        grid-template-columns: 1fr;
+      }
+
+      .search-button {
+        padding: 15px;
+      }
+
+      .cars {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">AUTOORA</div>
+  <a class="sell-top" href="#verkaufen">+ Auto verkaufen</a>
+</header>
+
+<section class="hero">
+  <h1>Dein nächstes Auto wartet auf dich.</h1>
+  <p>Autos einfach suchen, vergleichen und verkaufen.</p>
+
+  <div class="search-box">
+
+    <select>
+      <option>Alle Marken</option>
+      <option>Audi</option>
+      <option>BMW</option>
+      <option>Mercedes-Benz</option>
+      <option>Volkswagen</option>
+      <option>Porsche</option>
+      <option>Toyota</option>
+    </select>
+
+    <input type="text" placeholder="Modell">
+
+    <select>
+      <option>Preis bis</option>
+      <option>CHF 5'000</option>
+      <option>CHF 10'000</option>
+      <option>CHF 20'000</option>
+      <option>CHF 30'000</option>
+      <option>CHF 50'000</option>
+    </select>
+
+    <button class="search-button">Autos suchen</button>
+
+  </div>
+</section>
+
+<main class="content">
+
+  <h2>Neu auf AUTOORA</h2>
+
+  <div class="cars">
+
+    <div class="car">
+      <div class="car-image">🚗</div>
+      <div class="car-info">
+        <h3>BMW 320d</h3>
+        <div class="details">2020 · 82'000 km · Automatik</div>
+        <div class="price">CHF 24'900.–</div>
+      </div>
+    </div>
+
+    <div class="car">
+      <div class="car-image">🚙</div>
+      <div class="car-info">
+        <h3>Mercedes-Benz GLC</h3>
+        <div class="details">2021 · 61'000 km · Automatik</div>
+        <div class="price">CHF 39'900.–</div>
+      </div>
+    </div>
+
+    <div class="car">
+      <div class="car-image">🏎️</div>
+      <div class="car-info">
+        <h3>Audi A5</h3>
+        <div class="details">2019 · 94'000 km · Automatik</div>
+        <div class="price">CHF 28'500.–</div>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="sell-section" id="verkaufen">
+    <h2>Du möchtest dein Auto verkaufen?</h2>
+    <p>Erstelle dein Inserat auf AUTOORA.</p>
+    <a class="sell-button" href="#">Jetzt Auto inserieren</a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 AUTOORA · Autos kaufen & verkaufen
+</footer>
+
+</body>
+</html>

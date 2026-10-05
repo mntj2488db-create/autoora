@@ -3,66 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto verkaufen | AUTOORA</title>
+
+<title>Auto verkaufen – AUTOORA</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f5f5f5;
-  color: #111;
+  background: #f5f6f8;
+  color: #151515;
 }
 
 header {
-  background: white;
+  background: #111;
+  color: white;
   padding: 22px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: center;
 }
 
-.logo {
+header h1 {
+  margin: 0;
   font-size: 30px;
-  font-weight: 900;
-  text-decoration: none;
-  color: #111;
+}
+
+header p {
+  margin: 8px 0 0;
+  color: #ccc;
 }
 
 main {
   max-width: 650px;
-  margin: auto;
-  padding: 30px 20px;
+  margin: 30px auto;
+  padding: 15px;
 }
 
-h1 {
-  font-size: 34px;
-  margin-bottom: 8px;
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 0;
 }
 
 .subtitle {
+  text-align: center;
   color: #666;
-  margin-bottom: 30px;
-}
-
-.form-box {
-  background: white;
-  padding: 24px;
-  border-radius: 20px;
+  margin-bottom: 25px;
 }
 
 label {
   display: block;
   font-weight: bold;
-  margin-top: 18px;
+  margin-top: 15px;
   margin-bottom: 7px;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
   padding: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 10px;
   font-size: 16px;
   background: white;
@@ -70,24 +80,44 @@ input, select, textarea {
 
 textarea {
   min-height: 120px;
+  resize: vertical;
 }
 
 button {
   width: 100%;
   margin-top: 25px;
   padding: 17px;
-  border: 0;
+  border: none;
   border-radius: 10px;
-  background: #f56635;
+  background: #111;
   color: white;
   font-size: 18px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .back {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
   text-decoration: none;
-  color: #111;
+}
+
+.success {
+  display: none;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #e8f7eb;
+  text-align: center;
   font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #777;
 }
 </style>
 </head>
@@ -95,119 +125,137 @@ button {
 <body>
 
 <header>
-  <a class="logo" href="index.html">AUTOORA</a>
-  <a class="back" href="index.html">← Zurück</a>
+  <h1>AUTOORA</h1>
+  <p>Autos einfach kaufen & verkaufen</p>
 </header>
 
 <main>
 
-<h1>Auto verkaufen</h1>
-<p class="subtitle">Erstelle dein Inserat auf AUTOORA.</p>
+<div class="card">
 
-<div class="form-box">
+<h2>🚗 Auto verkaufen</h2>
+
+<p class="subtitle">
+Erstelle dein Inserat auf AUTOORA.
+</p>
 
 <form id="carForm">
 
-<label>Fotos</label>
-<input type="file" accept="image/*" multiple>
-
 <label>Marke</label>
-<select required>
-<option value="">Marke auswählen</option>
-<option>Audi</option>
-<option>BMW</option>
-<option>Mercedes-Benz</option>
-<option>Volkswagen</option>
-<option>Toyota</option>
-<option>Ford</option>
-<option>Opel</option>
-<option>Škoda</option>
-<option>Renault</option>
-<option>Peugeot</option>
-<option>Andere</option>
-</select>
+<input id="marke" type="text" placeholder="z.B. BMW" required>
 
 <label>Modell</label>
-<input type="text" placeholder="z.B. BMW X5" required>
+<input id="modell" type="text" placeholder="z.B. X5" required>
 
-<label>Erstzulassung / Jahrgang</label>
-<input type="number" placeholder="z.B. 2021" required>
+<label>Baujahr</label>
+<input id="baujahr" type="number" placeholder="z.B. 2020" required>
 
 <label>Kilometerstand</label>
-<input type="number" placeholder="z.B. 65000" required>
+<input id="kilometer" type="number" placeholder="z.B. 80000" required>
 
 <label>Preis in CHF</label>
-<input type="number" placeholder="z.B. 29900" required>
+<input id="preis" type="number" placeholder="z.B. 35000" required>
 
 <label>Treibstoff</label>
-<select>
-<option>Benzin</option>
-<option>Diesel</option>
-<option>Hybrid</option>
-<option>Elektro</option>
+<select id="treibstoff" required>
+<option value="">Treibstoff wählen</option>
+<option value="Benzin">Benzin</option>
+<option value="Diesel">Diesel</option>
+<option value="Hybrid">Hybrid</option>
+<option value="Elektro">Elektro</option>
 </select>
 
 <label>Getriebe</label>
-<select>
-<option>Automatik</option>
-<option>Schaltgetriebe</option>
+<select id="getriebe" required>
+<option value="">Getriebe wählen</option>
+<option value="Automatik">Automatik</option>
+<option value="Manuell">Manuell</option>
 </select>
 
-<label>Standort</label>
-<input type="text" placeholder="z.B. Aarau">
-
 <label>Beschreibung</label>
-<textarea placeholder="Beschreibe dein Fahrzeug..."></textarea>
+<textarea id="beschreibung"
+placeholder="Beschreibe dein Fahrzeug"></textarea>
 
-<label>Name</label>
-<input type="text" placeholder="Dein Name" required>
+<label>Dein Name</label>
+<input id="name" type="text" placeholder="Dein Name" required>
 
-<label>E-Mail</label>
-<input type="email" placeholder="name@beispiel.ch" required>
+<label>Telefonnummer</label>
+<input id="telefon" type="tel" placeholder="+41 ...">
 
-<label>Telefon</label>
-<input type="tel" placeholder="+41 ...">
+<label>E-Mail-Adresse</label>
+<input id="email" type="email" placeholder="name@beispiel.ch" required>
 
-<button type="submit">Inserat erstellen</button>
+<button type="submit">
+Inserat erstellen
+</button>
 
 </form>
 
+<div id="success" class="success">
+🎉 Dein Inserat wurde gespeichert!
 </div>
+
+<a class="back" href="index.html">
+← Zurück zur Startseite
+</a>
+
+</div>
+
 </main>
 
+<footer>
+© 2026 AUTOORA · Autos kaufen & verkaufen
+</footer>
+
 <script>
-<script>
+
 const form = document.getElementById("carForm");
 
-form.addEventListener("submit", function(e) {
-  e.preventDefault();
+form.addEventListener("submit", function(event) {
 
-  const inputs = form.querySelectorAll("input");
-  const selects = form.querySelectorAll("select");
-  const textarea = form.querySelector("textarea");
+  event.preventDefault();
 
   const inserat = {
-    marke: inputs[0].value,
-    modell: inputs[1].value,
-    baujahr: inputs[2].value,
-    kilometer: inputs[3].value,
-    preis: inputs[4].value,
-    treibstoff: selects[0] ? selects[0].value : "",
-    getriebe: selects[1] ? selects[1].value : "",
-    beschreibung: textarea ? textarea.value : "",
-    name: inputs[6] ? inputs[6].value : "",
-    email: inputs[7] ? inputs[7].value : "",
-    telefon: inputs[8] ? inputs[8].value : ""
+    id: Date.now(),
+    marke: document.getElementById("marke").value,
+    modell: document.getElementById("modell").value,
+    baujahr: document.getElementById("baujahr").value,
+    kilometer: document.getElementById("kilometer").value,
+    preis: document.getElementById("preis").value,
+    treibstoff: document.getElementById("treibstoff").value,
+    getriebe: document.getElementById("getriebe").value,
+    beschreibung: document.getElementById("beschreibung").value,
+    name: document.getElementById("name").value,
+    telefon: document.getElementById("telefon").value,
+    email: document.getElementById("email").value
   };
 
-  let inserate = JSON.parse(localStorage.getItem("autooraInserate")) || [];
-  inserate.push(inserat);
-  localStorage.setItem("autooraInserate", JSON.stringify(inserate));
+  let inserate = [];
 
-  alert("🎉 Dein Inserat wurde gespeichert!");
-  window.location.href = "index.html";
+  try {
+    inserate =
+      JSON.parse(localStorage.getItem("autooraInserate")) || [];
+  } catch(error) {
+    inserate = [];
+  }
+
+  inserate.push(inserat);
+
+  localStorage.setItem(
+    "autooraInserate",
+    JSON.stringify(inserate)
+  );
+
+  document.getElementById("success").style.display = "block";
+
+  form.reset();
+
+  setTimeout(function() {
+    window.location.href = "index.html";
+  }, 1200);
+
 });
-</script>
+
 </script>
 
 </body>

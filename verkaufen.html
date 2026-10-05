@@ -208,54 +208,10 @@ Inserat erstellen
 </footer>
 
 <script>
-
-const form = document.getElementById("carForm");
-
-form.addEventListener("submit", function(event) {
-
+document.getElementById("carForm").addEventListener("submit", function(event) {
   event.preventDefault();
-
-  const inserat = {
-    id: Date.now(),
-    marke: document.getElementById("marke").value,
-    modell: document.getElementById("modell").value,
-    baujahr: document.getElementById("baujahr").value,
-    kilometer: document.getElementById("kilometer").value,
-    preis: document.getElementById("preis").value,
-    treibstoff: document.getElementById("treibstoff").value,
-    getriebe: document.getElementById("getriebe").value,
-    beschreibung: document.getElementById("beschreibung").value,
-    name: document.getElementById("name").value,
-    telefon: document.getElementById("telefon").value,
-    email: document.getElementById("email").value
-  };
-
-  let inserate = [];
-
-  try {
-    inserate =
-      JSON.parse(localStorage.getItem("autooraInserate")) || [];
-  } catch(error) {
-    inserate = [];
-  }
-
-  inserate.push(inserat);
-
-  localStorage.setItem(
-    "autooraInserate",
-    JSON.stringify(inserate)
-  );
-
-  document.getElementById("success").style.display = "block";
-
-  form.reset();
-
-  setTimeout(function() {
-    window.location.href = "Index.html";
-  }, 1200);
-
+  alert("AUTOORA TEST FUNKTIONIERT!");
 });
-
 </script>
 
 </body>

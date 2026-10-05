@@ -312,13 +312,42 @@
 <footer>
   © 2026 AUTOORA · Autos kaufen & verkaufen
 </footer>
-  <script>
-const form = document.getElementById("verkaufsForm");
+<script>
+const form = document.getElementById("verkaufen");
 
 form.addEventListener("submit", function(event) {
-  event.preventDefault();
-  alert("🎉 Dein Inserat wurde erstellt!");
-  window.location.href = "index.html";
+    event.preventDefault();
+
+    const inputs = form.querySelectorAll("input");
+    const selects = form.querySelectorAll("select");
+    const textarea = form.querySelector("textarea");
+
+    const inserat = {
+        marke: inputs[0].value,
+        modell: inputs[1].value,
+        baujahr: inputs[2].value,
+        kilometer: inputs[3].value,
+        preis: inputs[4].value,
+        treibstoff: selects[0].value,
+        getriebe: selects[1].value,
+        beschreibung: textarea.value,
+        name: inputs[6].value,
+        telefon: inputs[7].value,
+        email: inputs[8].value
+    };
+
+    let inserate =
+        JSON.parse(localStorage.getItem("autooraInserate")) || [];
+
+    inserate.push(inserat);
+
+    localStorage.setItem(
+        "autooraInserate",
+        JSON.stringify(inserate)
+    );
+
+    alert("🎉 Dein Inserat wurde gespeichert!");
+    window.location.href = "index.html";
 });
 </script>
 
